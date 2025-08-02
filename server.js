@@ -2,17 +2,29 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const path = require('path');
-const { initializeSockets } = require('./socket');
-
 const app = express();
+
 const server = http.createServer(app);
 const io = require('socket.io')(server);
 
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve static files from root
+app.use(express.static(__dirname));
 
-initializeSockets(io);
+// Handle WebSocket connections
+io.on('connection', (socket) => {
+  console.log('✅ A user connected to Blah Blah Blah');
 
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('❌ A user disconnected');
+  });
+});
+
+// Start the server
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-  console.log(`🟢 Blah Blah Blah chat server is running at http://localhost:${PORT}`);
+  console.log(`🟢 Blah Blah Blah running at http://localhost:${PORT}`);
 });
