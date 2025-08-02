@@ -12,6 +12,7 @@ Blah Blah Blah is a simple real-time web-based chat app using Node.js, Express, 
 ## 🛠 Setup
 
 ```bash
-git clone https://github.com/your-username/blah-blah-blah.git
+git clone https://github.com/BlahBlahBlahChat/Blah-Blah-Blah.git
 cd blah-blah-blah
+
 npm install
