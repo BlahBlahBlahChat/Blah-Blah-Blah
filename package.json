@@ -1,10 +1,10 @@
 {
   "name": "blah-blah-blah",
   "version": "1.0.0",
-  "description": "Blah Blah Blah - A real-time web chat using Node.js and Socket.IO",
-  "main": "server/server.js",
+  "description": "Blah Blah Blah - A real-time chat app",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^16.4.0",
