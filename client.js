@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (input.value.trim()) {
-      socket.emit('chat message', input.value.trim());
+    const trimmed = input.value.trim();
+    if (trimmed) {
+      socket.emit('chat message', trimmed);
       input.value = '';
     }
   });
